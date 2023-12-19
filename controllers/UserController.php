@@ -55,12 +55,7 @@ class UserController {
     }
 
 
-    public function displayAprennat() {
-
-        $users = $this->userModel->getUsers();
-       
-        include_once './views/dashboard/admincrudaprenant.php';
-    }
+  
 
     public function deletUser($id){
        $this->userModel->deletUserr($id);
@@ -80,8 +75,27 @@ class UserController {
 
 
 
+    public function displayAprennat() {
 
+        $users = $this->userModel->getAprennat();
+       
+        include_once './views/dashboard/admincrudaprenant.php';
+    }
   
+    public function deletAprenant($id){
+        $this->userModel->deletUserr($id);
+        $this->displayAprennat();
+    }
+
+     public function createAprenant($firstname, $lastname, $email, $password) {
+        
+        $result = $this->userModel->createAprenant($firstname, $lastname, $email, $password);
+        if ($result) {
+            $this->displayAprennat();
+        } else {
+           echo "<script> alert('hhhhhhhhhhhhhhhhhhhhhhh'); </script>";
+        }
+     }
 }
 
 

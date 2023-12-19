@@ -44,7 +44,7 @@
             </td>
             <td>
               <a type="button" class="btn btn-warning">Ban</a>
-              <a href="index.php?action=suprimmeraprennat&idfr=<?= $user['user_id'] ?>" type="button" class="btn btn-danger">supprimer</a>
+              <a href="index.php?action=suprimmerAprennat&idAprennat=<?= $user['user_id'] ?>" type="button" class="btn btn-danger">supprimer</a>
               <a type="button" class="btn btn-success" data-toggle="modal" data-target="#addUserModal<?= $user['user_id'] ?>">modifier</a>
 
 
@@ -74,7 +74,7 @@
                           <input type="password" class="form-control" placeholder="Create password" name="password" required>
                         </div>
                          <div class="mb-3">
-                          <select name="role_id" id="role_id">
+                          <select class="form-control" name="role_id" id="role_id">
                             <option value="1">admin</option>
                             <option value="2">formateur</option>
                             <option value="3">aprennat</option>
@@ -132,7 +132,7 @@
 
 
               <div class="mb-3">
-                <button type="submit" name="submit" value="ajouteruser" class="btn btn-primary form-control">ajouter</button>
+                <button type="submit" name="submit" value="ajouterAprennat" class="btn btn-primary form-control">ajouter</button>
               </div>
 
             </form>

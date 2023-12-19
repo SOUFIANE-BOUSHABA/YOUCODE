@@ -55,6 +55,8 @@ class UserModel {
        
     }
 
+
+
     public function deletUserr($id){
         $conn = $this->db->getConnection();
     
@@ -75,6 +77,34 @@ class UserModel {
         if ($stmt) {
             return true;
         }
+    }
+
+
+
+
+
+    public function getAprennat() {
+        $conn = $this->db->getConnection();
+    
+        $sql = "SELECT * FROM users WHERE role_id = 3";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        
+       $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $result;
+       
+    }
+
+    public function createAprenant($firstname, $lastname, $email, $password) {
+        $conn = $this->db->getConnection();
+        $sql = "INSERT INTO users (first_name, last_name, email, password , role_id) VALUES (?, ?, ?, ? ,?)";
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$firstname, $lastname, $email, $hashedPassword , 3]);
+        if($stmt){
+            return true;
+        }
+        
     }
 }
 

@@ -12,7 +12,7 @@ switch($submit){
     case 'ajouteruser'  : extract($_POST); $userController->createFormateur($firstname,$lastname,$email,$password); break;
     case 'regesteruser' : extract($_POST); $userController->registerUser($firstname,$lastname,$email,$password); break;
     case 'enregisteruser' : extract($_POST); $userController->updateFormateur($firstname,$lastname,$email,$password,$role_id,$user_id); break;
-    var_dump($submit); die();
+    case 'ajouterAprennat' : extract($_POST); $userController->createAprenant($firstname, $lastname, $email, $password); break;
     
 }
 }
@@ -25,6 +25,7 @@ switch($action){
     case 'login' : include 'views/login.php'; break ;
     case 'regester' : include 'views/regester.php'; break;
     case 'suprimmerformateur':$userController->deletUser($_GET['idfr']); break;
+    case 'suprimmerAprennat' :$userController->deletAprenant($_GET['idAprennat']); break;
 }}else   include 'views/login.php';
 
 

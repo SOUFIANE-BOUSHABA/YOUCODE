@@ -32,7 +32,7 @@
   <div class="login-form col-md-3">
     <h2 style="color: #007bff;">YouCode</h2>
     
-    <form method="post" action="index.php">
+    <form method="post" action="index.php?action=formateur">
       <div class="mb-3">
         <input type="email" name="email" class="form-control" placeholder="Email" required>
       </div>

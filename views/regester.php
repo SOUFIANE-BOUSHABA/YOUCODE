@@ -29,7 +29,7 @@
 
   <div class="registration-form">
     <h2 class="text-center">Registration</h2>
-    <form method="POST" action="../controllers/UserController.php">
+    <form method="POST" action="index.php">
       <div class="mb-3">
         <input type="text" class="form-control" placeholder="Enter your name" name="firstname" required>
       </div>
@@ -48,7 +48,7 @@
         <label class="form-check-label">I accept all terms & conditions</label>
       </div>
       <div class="mb-3">
-        <button type="submit" name="regester" class="btn btn-primary form-control">Register Now</button>
+        <button type="submit" name="submit"  value="regesteruser" class="btn btn-primary form-control">Register Now</button>
       </div>
       <div class="text-center">
         <p>Already have an account? <a href="index.php?action=login">Login now</a></p>

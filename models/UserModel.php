@@ -64,6 +64,18 @@ class UserModel {
         
        return $stmt;
     }
+    
+    public function editFormateur($firstname, $lastname, $email, $password, $role_id, $user_id) {
+        $conn = $this->db->getConnection();
+        $sql = "UPDATE `users` SET `first_name`=?, `last_name`=?, `email`=?, `password`=?, `role_id`=? WHERE user_id=?";
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare($sql);
+    
+        $stmt->execute([$firstname, $lastname, $email, $hashedPassword, $role_id, $user_id]);
+        if ($stmt) {
+            return true;
+        }
+    }
 }
 
 

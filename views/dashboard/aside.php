@@ -11,7 +11,7 @@
   </li>
 
   <li class="nav-item ">
-    <a class="nav-link collapsed" href="admincrudformateur.php">
+    <a class="nav-link collapsed" href="index.php?action=formateur">
       <i class="bi bi-grid"></i>
       <span>Formateur</span>
     </a>

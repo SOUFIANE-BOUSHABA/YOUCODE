@@ -27,22 +27,22 @@
     }
   </style>
 </head>
-<body style="  background-image: url('../public/youcode.jfif');">
+<body style="  background-image: url('./public/youcode.jfif');">
 
   <div class="login-form col-md-3">
     <h2 style="color: #007bff;">YouCode</h2>
     
-    <form method="post" action="../controllers/UserController.php">
+    <form method="post" action="index.php">
       <div class="mb-3">
         <input type="email" name="email" class="form-control" placeholder="Email" required>
       </div>
       <div class="mb-3">
         <input type="password" name="password" class="form-control" placeholder="Password" required>
       </div>
-      <button type="submit" name="login" class="btn btn-primary form-control btn-block">Se Connecter</button>
+      <button type="submit" name="submit" value="loginuser" class="btn btn-primary form-control btn-block">Se Connecter</button>
     </form>
 
-    <p class="mt-3">Don't have an account? <a href="regester.php">Create one</a></p>
+    <p class="mt-3">Don't have an account? <a href="index.php?action=regester">Create one</a></p>
   </div>
 <div>
  

@@ -3,7 +3,7 @@ class UserModel {
     private $db;
 
     public function __construct() {
-        require_once '../config/DB.php';
+        require_once './config/DB.php';
         $this->db = new Database();
     }
 
@@ -18,13 +18,19 @@ class UserModel {
         }
         
     }
+
+
     public function loginUser($email, $password) {
         $conn = $this->db->getConnection();
 
-        $sql = "SELECT * FROM users WHERE email = :email";
+        $sql = "SELECT * FROM users 
+        INNER JOIN roles ON users.role_id = roles.role_id
+        INNER JOIN role_authorities ON roles.role_id = role_authorities.role_id
+        INNER JOIN authorities ON role_authorities.authority_id = authorities.authority_id
+        WHERE email = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
+       
+        $stmt->execute([$email]);
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -34,5 +40,32 @@ class UserModel {
             return false; 
         }
     }
+
+
+
+    public function getUsers() {
+        $conn = $this->db->getConnection();
+    
+        $sql = "SELECT * FROM users WHERE role_id = 2";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        
+       $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $result;
+       
+    }
+
+    public function deletUserr($id){
+        $conn = $this->db->getConnection();
+    
+        $sql = "DELETE  FROM users WHERE user_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$id]);
+        
+       return $stmt;
+    }
 }
+
+
+
 ?>

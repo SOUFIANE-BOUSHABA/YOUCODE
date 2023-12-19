@@ -25,7 +25,7 @@
     }
   </style>
 </head>
-<body style="background-image: url('../public/youcode.jfif');">
+<body style="background-image: url('./public/youcode.jfif');">
 
   <div class="registration-form">
     <h2 class="text-center">Registration</h2>
@@ -51,7 +51,7 @@
         <button type="submit" name="regester" class="btn btn-primary form-control">Register Now</button>
       </div>
       <div class="text-center">
-        <p>Already have an account? <a href="login.php">Login now</a></p>
+        <p>Already have an account? <a href="index.php?action=login">Login now</a></p>
       </div>
     </form>
   </div>

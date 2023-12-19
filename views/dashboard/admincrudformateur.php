@@ -1,6 +1,7 @@
 <?php  
  include 'header.php';
  include 'aside.php';
+ 
 ?>
 <main id="main" class="main">
 
@@ -8,7 +9,7 @@
   <h1>Accueil</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
+      <li class="breadcrumb-item"><a href="">Accueil</a></li>
       <li class="breadcrumb-item active">Gestion des Utilisateurs </li>
     </ol>
   </nav>
@@ -26,23 +27,25 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>
-        <p class="">soufian</p>
-      </td>
-      <td>
-        <span class="">boushaba</span>
-      </td>
-      <td>
-        <span class="">boushaba@gmail.com</span>
-      </td>
-      <td>
-        <a type="button" class="btn btn-warning">Ban</a>
-        <a type="button" class="btn btn-danger">suprimer</a>
-        <a type="button" class="btn btn-success">modifier</a>
-      </td>
-    </tr>
-   
+    
+    <?php foreach ($users as $user) : ?>
+      <tr>
+        <td>
+          <p class=""><?= $user['first_name'] ?></p>
+        </td>
+        <td>
+          <span class=""><?= $user['last_name'] ?></span>
+        </td>
+        <td>
+          <span class=""><?= $user['email'] ?></span>
+        </td>
+        <td>
+          <a type="button" class="btn btn-warning">Ban</a>
+          <a href="index.php?action=suprimmerformateur&idfr=<?= $user['user_id'] ?>" type="button" class="btn btn-danger">supprimer</a>
+          <a type="button" class="btn btn-success">modifier</a>
+        </td>
+      </tr>
+    <?php endforeach; ?>
   </tbody>
 </table>
 

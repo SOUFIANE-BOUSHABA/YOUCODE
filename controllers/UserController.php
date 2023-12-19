@@ -46,16 +46,6 @@ class UserController {
 }
 
 
-$userController = new UserController();
-
-if (isset($_POST['regester'])) {
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $userController->registerUser($firstname, $lastname, $email, $password);
-}
-
 
 
 

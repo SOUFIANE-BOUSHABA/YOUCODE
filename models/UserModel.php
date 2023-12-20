@@ -166,6 +166,17 @@ class UserModel {
        return $result;
        
     }
+    public function getProfilUser($iduiser) {
+        $conn = $this->db->getConnection();
+        
+        $sql = "SELECT * FROM users  join class_apprenants on users.user_id = class_apprenants.apprenant_id natural join classes  where users.user_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$iduiser]);
+        
+       $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $result;
+       
+    }
 }
 
 

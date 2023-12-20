@@ -14,8 +14,7 @@ switch($submit){
     case 'enregisteruser' : extract($_POST); $userController->updateFormateur($firstname,$lastname,$email,$password,$role_id,$user_id); break;
     case 'ajouterAprennat' : extract($_POST); $userController->createAprenant($firstname, $lastname, $email, $password); break;
     case 'enregisterAprenant' : extract($_POST); $userController->updateApranat($firstname,$lastname,$email,$password,$role_id,$user_id); break;
-    case 'ajouterclass':  extract($_POST); $userController->registerClass($classe_name, $selected_apprenants);
-        break;
+    case 'ajouterclass':  extract($_POST); $userController->registerClass($classe_name, $selected_apprenants); break;
  
 }
 }
@@ -32,6 +31,7 @@ switch($action){
     case 'class' : $userController->displayClass(); break;
     case 'deleteclass'  :$userController->deleteClass($_GET['idclass']); break;
     case 'users'   : $userController->displayAllUsers(); break;
+    case 'Profil'  : $userController->displayProfil(); break;
 }}else   include 'views/login.php';
 
 

@@ -29,6 +29,12 @@
     </a>
   </li>
   <li class="nav-item ">
+    <a class="nav-link collapsed" href="index.php?action=Profil">
+      <i class="bi bi-grid"></i>
+      <span>Profil </span>
+    </a>
+  </li>
+  <li class="nav-item ">
     <a class="nav-link collapsed" href="index.php?action=users">
       <i class="bi bi-grid"></i>
       <span>Users</span>

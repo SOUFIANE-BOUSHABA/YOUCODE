@@ -31,6 +31,7 @@ switch($action){
     case 'suprimmerAprennat' :$userController->deletAprenant($_GET['idAprennat']); break;
     case 'class' : $userController->displayClass(); break;
     case 'deleteclass'  :$userController->deleteClass($_GET['idclass']); break;
+    case 'users'   : $userController->displayAllUsers(); break;
 }}else   include 'views/login.php';
 
 

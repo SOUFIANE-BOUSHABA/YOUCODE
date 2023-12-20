@@ -29,9 +29,9 @@
     </a>
   </li>
   <li class="nav-item ">
-    <a class="nav-link collapsed" href="hotel.php">
+    <a class="nav-link collapsed" href="index.php?action=users">
       <i class="bi bi-grid"></i>
-      <span>Hotels</span>
+      <span>Users</span>
     </a>
   </li>
 

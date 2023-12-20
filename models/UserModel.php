@@ -46,9 +46,9 @@ class UserModel {
     public function getUsers() {
         $conn = $this->db->getConnection();
     
-        $sql = "SELECT * FROM users WHERE role_id = 2";
+        $sql = "SELECT * FROM users WHERE role_id = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->execute();
+        $stmt->execute([2]);
         
        $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
        return $result;
@@ -153,6 +153,18 @@ class UserModel {
         $sql = "DELETE FROM classes WHERE class_id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$classId]);
+    }
+
+    public function getAllUsers() {
+        $conn = $this->db->getConnection();
+    
+        $sql = "SELECT * FROM users ";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        
+       $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $result;
+       
     }
 }
 

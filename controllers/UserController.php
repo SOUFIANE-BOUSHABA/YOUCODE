@@ -140,6 +140,14 @@ class UserController {
         $this->displayClass();
     }
 
+////////////////////////////////
+
+    public function displayAllUsers() {
+
+        $users = $this->userModel->getAllUsers();
+       
+        include_once './views/dashboard/Allusers.php';
+    }
 }
 
 

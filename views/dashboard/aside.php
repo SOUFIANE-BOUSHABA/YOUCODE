@@ -23,9 +23,9 @@
     </a>
   </li>
   <li class="nav-item ">
-    <a class="nav-link collapsed" href="request.php">
+    <a class="nav-link collapsed" href="index.php?action=class">
       <i class="bi bi-grid"></i>
-      <span>Requests </span>
+      <span>Classes </span>
     </a>
   </li>
   <li class="nav-item ">

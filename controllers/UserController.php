@@ -96,6 +96,50 @@ class UserController {
            echo "<script> alert('hhhhhhhhhhhhhhhhhhhhhhh'); </script>";
         }
      }
+
+    public function updateApranat($firstname,$lastname,$email,$password,$role_id,$user_id) {
+        
+        $result = $this->userModel->editFormateur($firstname,$lastname,$email,$password,$role_id,$user_id);
+        if ($result) {
+            $this->displayAprennat();
+        } else {
+           echo "<script> alert('hhhhhhhhhhhhhhhhhhhhhhh'); </script>";
+        }
+    }
+
+
+    //displayClass
+    public function displayClass() {
+        if (!isset($_SESSION['user_id'])) {
+            include 'views/login.php';
+        }
+
+        $userId = $_SESSION['user_id'];
+        $classes = $this->userModel->getClassInfo($userId);
+        $unassignedApprenants = $this->userModel->getAprennatnonClass(); 
+        include_once 'views/dashboard/formateurcrudclass.php';
+    }
+
+
+   
+
+    public function registerClass($className, $selectedApprenants) {
+        $userId = $_SESSION['user_id'];
+        $classId = $this->userModel->insertClass($className , $userId);
+
+        foreach ($selectedApprenants as $apprenantId) {
+            $this->userModel->assignApprenantToClass($classId, $apprenantId);
+        }
+
+        $this->displayClass();
+    }
+
+
+    public function deleteClass($classId) {
+        $this->userModel->deleteClass($classId);
+        $this->displayClass();
+    }
+
 }
 
 

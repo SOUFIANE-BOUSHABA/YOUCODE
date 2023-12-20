@@ -83,7 +83,7 @@
 
 
                         <div class="mb-3">
-                          <button type="submit" name="submit" value="enregisteruser" class="btn btn-primary form-control">enregistrer</button>
+                          <button type="submit" name="submit" value="enregisterAprenant" class="btn btn-primary form-control">enregistrer</button>
                         </div>
 
                       </form>

@@ -106,6 +106,54 @@ class UserModel {
         }
         
     }
+
+
+    public function getClassInfo($userId) {
+        $conn = $this->db->getConnection();
+        $sql = "SELECT * FROM classes WHERE formateur_id = ? ";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$userId]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+
+    public function getAprennatnonClass() {
+        $conn = $this->db->getConnection();
+        $sql = "SELECT * FROM users WHERE role_id = ? AND user_id NOT IN (SELECT apprenant_id FROM class_apprenants WHERE apprenant_id IS NOT NULL)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([3]);
+        return $unassignedApprenants = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    public function insertClass($className , $userId) {
+        $conn = $this->db->getConnection();
+        $sql = "INSERT INTO classes (formateur_id ,name_of_class) VALUES (?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([ $userId,$className]);
+
+        return $conn->lastInsertId();
+    }
+    public function assignApprenantToClass($classId, $apprenantId) {
+        $conn = $this->db->getConnection();
+        $sql = "INSERT INTO class_apprenants (class_id, apprenant_id) VALUES (?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$classId,$apprenantId]);
+    }
+
+
+
+
+
+
+
+    public function deleteClass($classId) {
+        $conn = $this->db->getConnection();
+        $sql = "DELETE FROM classes WHERE class_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$classId]);
+    }
 }
 
 

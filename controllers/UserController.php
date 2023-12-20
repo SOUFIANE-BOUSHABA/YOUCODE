@@ -148,6 +148,13 @@ class UserController {
        
         include_once './views/dashboard/Allusers.php';
     }
+
+    public function displayProfil() {
+        $userId = $_SESSION['user_id'];
+        $users = $this->userModel->getProfilUser($userId);
+       
+        include_once './views/dashboard/myclass.php';
+    }
 }
 
 

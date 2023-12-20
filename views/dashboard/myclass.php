@@ -1,4 +1,3 @@
-
 <?php  
  include 'header.php';
  include 'aside.php';
@@ -43,14 +42,22 @@
         <h5 class="card-title"><?= $user['first_name'] ?> <?= $user['last_name'] ?></h5>
         <p class="card-text"><?= $user['email'] ?></p>
       
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal<?= $user['user_id'] ?>">
-          Contacter
-        </button>
+        <?php if ($user['user_id'] == $currentUserId) : ?>
+          <!-- Display mini card for the current user -->
+          <div class="mini-card">
+            <h6>Mon Profil</h6>
+            <p>Nom de ma classe: <?= $user['class_name'] ?></p>
+            <!-- Add other details as needed -->
+          </div>
+        <?php else : ?>
+          <!-- Display cards for other users in the same class -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal<?= $user['user_id'] ?>">
+            Contacter
+          </button>
+        <?php endif; ?>
       </div>
     </div>
   </div>
-
-
 <?php endforeach; ?>
 </div>
 

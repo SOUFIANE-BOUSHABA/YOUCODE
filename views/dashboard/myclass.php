@@ -1,6 +1,11 @@
 <?php  
 include 'header.php';
 include 'aside.php';
+if (!isset($_SESSION['roleee_id']) || $_SESSION['roleee_id'] != 2) {
+  header('Location: index.php?action=login');
+  exit();
+}
+
 ?>
 <main id="main" class="main">
 

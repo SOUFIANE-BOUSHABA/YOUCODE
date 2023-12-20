@@ -2,10 +2,11 @@
 <?php  
  include 'header.php';
  include 'aside.php';
- if (!isset($_SESSION['roleee_id'])) {
+ if (!isset($_SESSION['roleee_id']) || $_SESSION['roleee_id'] != 1) {
   header('Location: index.php?action=login');
   exit();
 }
+
 ?>
 <main id="main" class="main">
 
@@ -28,7 +29,7 @@
     <table class="table align-middle pl-4 mb-0 mt-2 bg-white shadow">
       <thead class="bg-light">
         <tr>
-          <th>nom</th>
+          <th>nom </th>
           <th>prenom</th>
           <th>email</th>
           <th>action</th>
@@ -105,7 +106,7 @@
 
             </td>
           </tr>
-        <?php endforeach; ?>
+        <?php endforeach;  ?>
       </tbody>
     </table>
 

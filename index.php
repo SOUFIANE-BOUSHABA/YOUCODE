@@ -32,6 +32,7 @@ switch($action){
     case 'deleteclass'  :$userController->deleteClass($_GET['idclass']); break;
     case 'users'   : $userController->displayAllUsers(); break;
     case 'Profil'  : $userController->displayProfil(); break;
+    case 'logout' : session_destroy(); break;
 }}else   include 'views/login.php';
 
 

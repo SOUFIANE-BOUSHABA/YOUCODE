@@ -166,10 +166,14 @@ class UserModel {
        return $result;
        
     }
+
+
+
+    
     public function getProfilUser($iduiser) {
         $conn = $this->db->getConnection();
         
-        $sql = "SELECT * FROM users  join class_apprenants on users.user_id = class_apprenants.apprenant_id natural join classes  where users.user_id = ?";
+        $sql = "SELECT * FROM users    where users.user_id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$iduiser]);
         
@@ -177,6 +181,31 @@ class UserModel {
        return $result;
        
     }
+    public function getProfilclass($iduiser) {
+        $conn = $this->db->getConnection();
+    
+        $sql = "SELECT * FROM users JOIN class_apprenants ON users.user_id = class_apprenants.apprenant_id NATURAL JOIN classes WHERE users.user_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$iduiser]);
+    
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($result as &$class) {
+            $class['students'] = $this->getStudentsInClass($class['class_id']);
+        }
+    
+        return $result;
+    }
+    
+    public function getStudentsInClass($classId) {
+        $conn = $this->db->getConnection();
+    
+        $sql = "SELECT * FROM users JOIN class_apprenants ON users.user_id = class_apprenants.apprenant_id WHERE class_apprenants.class_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$classId]);
+    
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }
 
 

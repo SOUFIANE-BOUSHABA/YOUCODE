@@ -2,7 +2,7 @@
 <aside id="sidebar" class="sidebar">
 
 <ul class="sidebar-nav" id="sidebar-nav">
-<?php if(isset($_SESSION['role_id']) && $_SESSION['role_id']==1){?>
+<?php if(isset($_SESSION['roleee_id']) && $_SESSION['roleee_id']==1){?>
 <li class="nav-item">
     <a class="nav-link " href="index.php">
       <i class="bi bi-grid"></i>
@@ -22,7 +22,7 @@
       <span>apprenant</span>
     </a>
   </li> <?php } ?>
-  <?php if(isset($_SESSION['role_id']) && $_SESSION['role_id']==2){?>
+  <?php if(isset($_SESSION['roleee_id']) && $_SESSION['roleee_id']==2){?>
   <li class="nav-item ">
     <a class="nav-link collapsed" href="index.php?action=class">
       <i class="bi bi-grid"></i>

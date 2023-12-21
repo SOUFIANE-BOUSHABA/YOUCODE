@@ -27,8 +27,8 @@
     }
   </style>
 </head>
-<body style="  background-image: url('./public/youcode.jfif');">
 
+<body style="  background-image: url('./public/youcode.jfif');">
   <div class="login-form col-md-3">
     <h2 style="color: #007bff;">YouCode</h2>
     

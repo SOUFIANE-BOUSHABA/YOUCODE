@@ -20,7 +20,7 @@ class UserModel {
     }
 
 
-    public function loginUser($email, $password) {
+    public function loginUserModel($email, $password) {
         $conn = $this->db->getConnection();
 
         $sql = "SELECT * FROM users 
@@ -169,7 +169,7 @@ class UserModel {
 
 
 
-    
+
     public function getProfilUser($iduiser) {
         $conn = $this->db->getConnection();
         

@@ -3,7 +3,7 @@
  include 'header.php';
  include 'aside.php';
  if (!isset($_SESSION['roleee_id']) || $_SESSION['roleee_id'] != 1) {
-  header('Location: index.php?action=login');
+  header('Location: index.php?action=class');
   exit();
 }
 

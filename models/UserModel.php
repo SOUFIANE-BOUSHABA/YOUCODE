@@ -1,9 +1,10 @@
 <?php
+    require_once './config/DB.php';
 class UserModel {
     private $db;
 
     public function __construct() {
-        require_once './config/DB.php';
+  
         $this->db = new Database();
     }
 
